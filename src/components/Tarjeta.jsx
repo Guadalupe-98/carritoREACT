@@ -15,6 +15,14 @@ const Tarjeta = ({producto}) => {
   const [count, setCount] = useState(0);
 
   const handlerAdd = () => {
+    if (count >= 5) {
+      Swal.fire({
+        title: 'No puedes agregar mas de 5 productos',
+        icon: "error",
+        confirmButtonText: 'Aceptar'
+      });
+      return;
+    }
     setCount(count + 1);
   };
 
